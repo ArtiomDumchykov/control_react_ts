@@ -3,8 +3,7 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 import { ROUTES } from "routes";
 
 import { MainLayuot } from "layouts";
-import { MoviesPage, MoviePage, NotFoundPage, LoginPage } from "pages";
-import { AuthRequired } from "HOC";
+import { MoviesPage, MoviePage, NotFoundPage } from "pages";
 
 
 
@@ -25,20 +24,6 @@ export const router = createBrowserRouter([
                 path: ROUTES.MOVIE_ID,
                 element: <MoviePage/>,
             },
-            {
-                path: ROUTES.AUTH_LOGIN,
-                element: <LoginPage />
-            },
-            {
-                path: ROUTES.AUTH_REGISTER,
-                element: <LoginPage />
-            },
-            {
-                path: "/favorites",
-                element: <AuthRequired><div>Favorites Page</div></AuthRequired>,
-               
-            }
-
         ]
     },
     {
