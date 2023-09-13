@@ -1,0 +1,36 @@
+@import '../../styles/utils/var.scss';
+
+body.dark {
+
+}
+
+.switcher {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: $transition;
+
+    span {
+        color: $orange-color;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+    }
+
+    &:hover {
+        span {
+            color: $orange-grey-color;
+            transition: $transition;
+        }
+
+        svg {
+            fill: $orange-grey-color;
+            transition: $transition;
+        }
+    }
+}
+
+.icon {
+    fill: $orange-color;
+}
