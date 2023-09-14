@@ -6,6 +6,7 @@ import { useAppSelector } from 'hooks'
 
 import { Movie } from '../Movie/Movie';
 
+
 export const MoviesLists = () => {
 
   const { movies } = useAppSelector(state => state.movies);

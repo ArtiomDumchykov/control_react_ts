@@ -19,14 +19,18 @@ export const Movie = ({ movie }: IMovieListProps) => {
     const { id, poster_path, title, release_date, vote_average } = movie;
     
     const data = +release_date.split('-')[0];
-    const img = urls.posterUrl.base + poster_path || urls.notFoundPoster.base
-
+   
+    const img = !!poster_path ? urls.posterUrl.base + poster_path : urls.notFoundPoster.base 
+    
 
     return (
         <li className="movies-lists__item">
             <div 
                 className="movies-lists-item__img-wrap"
-                style={{ backgroundImage: `url(${img})` }}
+                style={{ 
+                    backgroundSize: !poster_path ? "cover" : "",
+                    backgroundImage: `url(${img})` 
+                }}
                 onClick={() => navigate(`/movieInfo/${id}`) }
             >
                 <p></p>

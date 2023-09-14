@@ -1,3 +1,5 @@
+import { ICreditsResponse, IVideosResponse } from "./api_types";
+
 interface IMovies {
     adult: boolean;
     backdrop_path: string | null;
@@ -73,7 +75,59 @@ interface ISpokenLaguage {
     name: string;
 }
 
+
+interface ICasts {
+    adult: boolean;
+    gender: number;
+    id: number;
+    known_for_department: string;
+    name: string;
+    original_name: string;
+    popularity: number;
+    profile_path: string | null;
+    cast_id: number;
+    character: string;
+    credit_id: string;
+    order: number;
+}
+interface ICrew {
+    adult: boolean;
+    gender: number;
+    id: number;
+    known_for_department: string;
+    name: string;
+    original_name: string;
+    popularity: number;
+    profile_path: string | null;
+    credit_id: string;
+    department: string;
+    job: string;
+}
+
+type ICredits = ICreditsResponse
+
+
+interface IVideo {
+    iso_639_1: string;
+    iso_3166_1: string;
+    name: string;
+    key: string;
+    site: string;
+    size: number;
+    type: string;
+    official: boolean;
+    published_at: string;
+    id: string;
+}
+
+type IVideos = IVideosResponse 
+
 export type {
+    IVideos,
+    ICredits,
+    IVideo,
+    ICasts,
+    ICrew,
     IMovies,
     IMovieInfo,
     IGenre

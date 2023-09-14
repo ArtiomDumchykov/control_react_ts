@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 const { 
     REACT_APP_BASEURL: baseURL,
@@ -14,6 +14,18 @@ instanceAxiosApi.interceptors.request.use(config => {
     config.headers.Authorization = authorizationToken
     return config
 })
+
+
+// instanceAxiosApi.interceptors.response.use(
+//     (res) => {return res},
+//     async (error: AxiosError) => {
+//         const originalRequest = error.config
+
+//         if (error.response.status === 422) {
+            
+//         }
+//     }
+// )
 
 export {
     instanceAxiosApi

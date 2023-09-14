@@ -1,6 +1,0 @@
-export * from './Reting'
-export * from './Countries'
-export * from './Genres'
-export * from './Budget'
-export * from './RunTime'
-export * from './RealeseDate'

@@ -1,0 +1,37 @@
+@import '../../../styles/utils/var.scss';
+
+
+body[data-theme='dark'] .custom-pagination {
+    & ul {
+        & li {
+            & button {
+               color: $light-color;
+            }
+        }
+    }
+}
+
+.custom-pagination {
+    padding: 20px 0;
+
+    & ul {
+        justify-content: center;
+
+        & li {
+
+
+            & button{
+                &.Mui-selected {
+                    background-color: $orange-color;
+                    transition: $transition;
+                }
+                &:hover {
+                    color: $light-color;
+                    background-color: $orange-grey-color;
+                    transition: $transition;
+                }
+            }
+           
+        }
+    }
+}

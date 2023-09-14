@@ -2,13 +2,13 @@ const posterUrl = 'https://image.tmdb.org/t/p/original/';
 const youTube = 'https://www.youtube.com/embed/';
 
 const discover = '/discover';
-const movies = '/movies';
+// const movies = '/movies';
 const movie = '/movie';
 const genre = '/genre';
 const list = '/list';
 const credits = '/credits';
 
-const favorite = '/favorite';
+// const favorite = '/favorite';
 
 const search = '/search';
 

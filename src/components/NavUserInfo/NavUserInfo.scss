@@ -1,0 +1,52 @@
+@import '../../styles/utils/var.scss';
+
+
+body.dark {
+    .panel-user__item {
+        color: $main-color;
+    }
+}
+
+.nav-user-info {
+    position: relative;
+    cursor: pointer;
+
+    .panel {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        padding: 8px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        min-width: 150px;
+
+        .panel__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            .panel-user__item {
+                margin: 6px 0;
+                cursor: pointer;
+                transition: $transition;
+
+                &:hover {
+                    text-decoration: underline;
+                    color: orange;
+                    /* Add the orange color for the hover effect */
+                    transition: $transition;
+                }
+            }
+        }
+    }
+}
+
+
+.panel-user-exit {
+    border-top: 1px solid $primary-text-color;
+    padding-top: 5px;
+}
