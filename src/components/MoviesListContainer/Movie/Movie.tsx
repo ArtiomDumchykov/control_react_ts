@@ -25,15 +25,13 @@ export const Movie = ({ movie }: IMovieListProps) => {
 
     return (
         <li className="movies-lists__item">
-            <div 
-                className="movies-lists-item__img-wrap"
-                style={{ 
-                    backgroundSize: !poster_path ? "cover" : "",
-                    backgroundImage: `url(${img})` 
-                }}
-                onClick={() => navigate(`/movieInfo/${id}`) }
-            >
-                <p></p>
+            <div className="movies-lists-item__img-wrap">
+                <img
+                    className="movies-lists-item__img"
+                    src={img}
+                    alt={title}
+                    onClick={() => navigate(`/movieInfo/${id}`) }
+                />
             </div>
             <div className="badges">
                 <span

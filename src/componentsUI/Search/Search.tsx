@@ -3,16 +3,16 @@ import React, { FormEvent } from 'react'
 import { ReactComponent as SearchIcon } from 'assets/icon-search.svg';
 
 import './Search.scss'
-import { useAppDispatch, useAppSelector } from 'hooks';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useAppDispatch } from 'hooks';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ROUTES } from 'routes';
+import { searchActions } from 'reduxRTK/slices';
 
 
 export const Search = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const {query: searchQuery, } = useAppSelector(state => state.search) 
-  const [q, setQ] = useSearchParams()
+  const [_, setQuery] = useSearchParams()
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -21,8 +21,10 @@ export const Search = () => {
 
     if (text.trim()) {
       navigate(`${ROUTES.MOVIES_LIST}`)
-      setQ(prev => {
-        prev.set("search", `${text}`)
+      dispatch(searchActions.setSearchQuery(text))
+      setQuery(prev => {
+        prev.set("query", `${text}`)
+        prev.set("page", "1")
         return prev
       })
       event.currentTarget.reset();

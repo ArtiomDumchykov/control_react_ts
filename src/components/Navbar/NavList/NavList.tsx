@@ -20,6 +20,10 @@ const navLinks: INavLinks[] = [
         linkName: 'movies',
         redirect: ROUTES.MOVIES_LIST
     },
+    {
+        linkName: 'genres',
+        redirect: ROUTES.MOVIES_GENRES
+    },
 ]
 
 export const NavList = () => {

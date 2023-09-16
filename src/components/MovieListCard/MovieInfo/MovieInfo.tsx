@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import "./MovieInfo.scss";
@@ -7,6 +7,8 @@ import { urls } from 'constants/';
 import { IMovieInfo } from 'type';
 
 import { ShortDescription } from '../ShortDescription/ShortDescription';
+import { useAppDispatch } from 'hooks';
+import { movieActions } from 'reduxRTK/slices';
 
 interface IMovieInfoProps {
     movie: IMovieInfo,
@@ -14,8 +16,18 @@ interface IMovieInfoProps {
 }
 
 export const MovieInfo = ({ movie, onOpen }: IMovieInfoProps) => {
+    const dispatch = useAppDispatch()
     const navigate = useNavigate();
     const [, setQuery] = useSearchParams({ page: "1", })
+
+
+    useEffect(() => {
+        return () => {
+            dispatch(movieActions.setClearMovieInfo())
+        }
+    }, [])
+
+
 
     if (!movie) return null
 

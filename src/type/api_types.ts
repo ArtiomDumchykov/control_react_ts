@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 
-import { ICasts, ICrew, IMovies, IVideo } from "./movies_type";
+import { ICasts, ICrew, IGenre, IMovies, IVideo } from "./movies_type";
 
 interface IParams {
     page?: number,
@@ -38,9 +38,14 @@ interface IVideosResponse {
     results: IVideo[]
 }
 
+interface IGenresResponse {
+    genres: IGenre[]
+}
+
 type IRes<T> = Promise<AxiosResponse<T>>
 
 export type {
+    IGenresResponse,
     IVideosResponse,
     ICreditsResponse,
     IMoviesResponse,

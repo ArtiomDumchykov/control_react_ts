@@ -68,7 +68,13 @@ const slice = createSlice({
     name: "movieSlice",
     initialState,
     reducers: {
-
+        setClearMovieInfo: (state) => {
+            state.movieId = null
+            state.movie = null;
+            state.credits = null;
+            state.videos = null;
+            state.errors = null
+        }
     },
     extraReducers: builder => builder
         .addCase(getMovie.fulfilled, (state, action) => {

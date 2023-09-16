@@ -2,14 +2,19 @@ import React from 'react';
 
 import "./MoviesLists.scss"
 
-import { useAppSelector } from 'hooks'
+import { IMovies } from 'type';
 
 import { Movie } from '../Movie/Movie';
+interface IMoviesListsProps {
+  movies: IMovies[]
+}
 
-
-export const MoviesLists = () => {
-
-  const { movies } = useAppSelector(state => state.movies);
+export const MoviesLists = ({movies}: IMoviesListsProps) => {
+  if (!movies) {
+    return (
+      <div>NO Movies</div>
+    )
+  }
 
   return (
     <>

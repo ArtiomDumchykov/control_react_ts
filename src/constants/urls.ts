@@ -1,4 +1,4 @@
-const posterUrl = 'https://image.tmdb.org/t/p/original/';
+const posterUrl = 'https://image.tmdb.org/t/p/original';
 const youTube = 'https://www.youtube.com/embed/';
 
 const discover = '/discover';
