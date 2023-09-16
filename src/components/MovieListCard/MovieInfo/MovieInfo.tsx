@@ -9,10 +9,11 @@ import { IMovieInfo } from 'type';
 import { ShortDescription } from '../ShortDescription/ShortDescription';
 
 interface IMovieInfoProps {
-    movie: IMovieInfo
+    movie: IMovieInfo,
+    onOpen: () => void
 }
 
-export const MovieInfo = ({ movie }: IMovieInfoProps) => {
+export const MovieInfo = ({ movie, onOpen }: IMovieInfoProps) => {
     const navigate = useNavigate();
     const [, setQuery] = useSearchParams({ page: "1", })
 
@@ -53,7 +54,7 @@ export const MovieInfo = ({ movie }: IMovieInfoProps) => {
                             <div className="short-description__btn">
                                 <button
                                     className='action-btn btn-play'
-                                // onClick={() => onOpen()}
+                                onClick={() => onOpen()}
                                 >
                                     play
                                 </button>

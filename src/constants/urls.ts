@@ -43,7 +43,10 @@ const notFoundPoster = "https://static.vecteezy.com/system/resources/previews/00
     search: { base: `${search}${movie}` },
 
     videos: { base: (id: string) => `${movie}/${id}${videos}` },
-    youTube: { base: youTube },
+    youTube: {
+        base: (key: string) => `${youTube}${key}`
+    },
+    // youTube: { base: youTube },
 
     popular: {base: `${movie}${popular}`},   
     top_rated: {base: `${movie}${top_rated}`},   
@@ -54,9 +57,7 @@ const notFoundPoster = "https://static.vecteezy.com/system/resources/previews/00
         week: {base: `${trending}${movie}${week}`}
     },
 
-    youTube2: {
-        base: (key: string) => `${youTube}${key}`
-    }
+    
 };
 
 export { 

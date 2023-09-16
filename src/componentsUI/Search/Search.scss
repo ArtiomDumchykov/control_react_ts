@@ -1,0 +1,103 @@
+@import '../../styles/utils/var.scss';
+
+body[data-theme='dark'] {
+  .search {
+
+    background-color: #2e2e2e;
+
+    & > button {
+      color: $orange-color;
+      background-color: #242424;
+    }
+  }
+  .textField {
+    background-color: #2e2e2e;
+  }
+}
+
+.search-form__container {
+  display: flex;
+}
+
+.search {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 5px 10px 5px 16px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--search-shadow);
+  border-radius: 15px;
+
+  @media (min-width: 767px) {
+    padding: 10px 10px 10px 20px;
+  }
+
+  &>button {
+    flex-shrink: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 0 15px;
+  }
+}
+
+
+
+.label {
+  cursor: pointer;
+  display: flex;
+  // align-items: center;
+  
+}
+
+.search-icon {
+  // width: 20px; 
+  // height: 20px;
+}
+
+.textField {
+  align-self: center;
+  padding: 0 10px;
+  flex-grow: 5;
+  height: 20px;
+  // max-width: calc(100% - 100px - 20px);
+  border: none;
+  color: var(--search-color);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  cursor: pointer;
+
+  &::placeholder {
+    color: grey;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  @media (min-width: 767px) {
+    margin: 0 5px;
+    font-size: 1.25rem;
+    margin: 0 20px;
+  }
+}
+
+.error {
+  position: absolute;
+  right: 50%;
+  bottom: 5px;
+  color: var(--error-color);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 700;
+
+  @media (min-width: 767px) {
+    right: 120px;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: unset;
+  }
+}

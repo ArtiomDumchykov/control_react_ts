@@ -26,9 +26,6 @@ interface IMoviesResponse {
     total_results: number;
 }
 
-
-
-
 interface ICreditsResponse {
     id: number
     cast?: ICasts[]
