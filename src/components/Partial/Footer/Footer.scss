@@ -1,6 +1,12 @@
+@import '../../../styles/utils/var.scss';
+
 body[data-theme='dark'] {
     .footer {
         box-shadow: 0 -3px 10px rgba(230, 153, 39, 0.2);
+    }
+
+    .teleg-link {
+        color: $light-theme-color;
     }
 }
 
@@ -14,8 +20,15 @@ body[data-theme='dark'] {
 .footer__container {
 
 }
+
 .footer__title {
     text-align: center;
     font-size: 16px;
 
+}
+
+.teleg-link {
+    cursor: pointer;
+    color: $main-color;
+    text-decoration: underline;
 }
