@@ -1,9 +1,8 @@
 import React from 'react';
 
 import { NavList } from './NavList/NavList';
-import { Theme } from 'componentsUI';
+import { Theme, Search } from 'componentsUI';
 import { NavUserInfo } from 'components/NavUserInfo/NavUserInfo';
-import { Search } from 'componentsUI';
 
 export const Navbar = () => {
     return (

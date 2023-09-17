@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { AxiosError } from 'axios';
 
-import { MovieInfo } from './MovieInfo/MovieInfo';
-import { MovieTrailerModal } from 'components/Modal';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { movieActions } from 'reduxRTK/slices';
+
+import { MovieInfo } from './MovieInfo/MovieInfo';
+import { MovieTrailerModal } from 'components/Modal';
 import { PostersPreview } from 'components/PostersPreview/PostersPreview';
 
 interface IMovieListCardProps {

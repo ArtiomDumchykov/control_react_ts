@@ -16,12 +16,12 @@ const initialState: IState = {
     total_pages: null,
 }
 
-const search = createAsyncThunk<{data: IMoviesResponse}, {query?: ISearchParams}>(
+const search = createAsyncThunk<{ data: IMoviesResponse }, { query?: ISearchParams }>(
     'searchSlice/search',
-    async({query}, {rejectWithValue}) => {
+    async ({ query }, { rejectWithValue }) => {
         try {
-            const {data} = await movieService.search(query)
-            return {data, query}
+            const { data } = await movieService.search(query)
+            return { data, query }
         } catch (error) {
             const err = error as AxiosError;
             return rejectWithValue(err.message)
@@ -33,7 +33,7 @@ const slice = createSlice({
     name: "searchSlice",
     initialState,
     reducers: {
-        setSearchQuery:(state, action: PayloadAction<string>) => {
+        setSearchQuery: (state, action: PayloadAction<string>) => {
             state.query = action.payload
         },
         setClearSearchQuery: (state, action) => {
@@ -50,7 +50,7 @@ const slice = createSlice({
 })
 
 
-const {reducer: searchReduser, actions} = slice
+const { reducer: searchReduser, actions } = slice
 
 const searchActions = {
     ...actions,

@@ -5,7 +5,6 @@ import './NavList.scss'
 import { ROUTES } from 'routes';
 
 import { NavItem } from '../NavItem/NavItem';
-
 export interface INavLinks {
     linkName: string, 
     redirect: string

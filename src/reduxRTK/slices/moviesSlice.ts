@@ -1,10 +1,8 @@
-import { PayloadAction, createAsyncThunk, createSlice, isRejected } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 
 import { IMovies, IMoviesResponse, IParams } from "type";
 import { movieService } from 'services';
-
-
 
 interface IState extends Pick<IMoviesResponse, "page" | "total_pages"> {
     movies: IMovies[],
@@ -26,11 +24,9 @@ const getAll = createAsyncThunk<{ data: IMoviesResponse }, { params?: IParams | 
     'moviesSlice/getAll',
     async ({ params }, { rejectWithValue }) => {
         try {
-            const response = await movieService.getAll(params);
-
-            const {data} = response
+            const { data } = await movieService.getAll(params);
             return { data }
-           
+
         } catch (error) {
             const err = error as AxiosError
             return rejectWithValue(err.message)

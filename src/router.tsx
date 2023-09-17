@@ -5,8 +5,6 @@ import { ROUTES } from "routes";
 import { MainLayuot } from "layouts";
 import { MoviesPage, MoviePage, NotFoundPage, GenresPage } from "pages";
 
-
-
 export const router = createBrowserRouter([
     {
         path: ROUTES.MAIN,

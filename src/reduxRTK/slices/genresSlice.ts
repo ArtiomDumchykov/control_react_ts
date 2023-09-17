@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IGenre, IGenresResponse } from 'type';
-import { movieService } from 'services';
 import { AxiosError } from "axios";
 
+import { IGenresResponse } from 'type';
+import { movieService } from 'services';
+
 interface IState extends IGenresResponse {
-    
+
     errors: string[],
 }
 const initialState: IState = {
@@ -12,13 +13,12 @@ const initialState: IState = {
     errors: null
 }
 
-
-const getGenres = createAsyncThunk<{data: IGenresResponse}, void>(
+const getGenres = createAsyncThunk<{ data: IGenresResponse }, void>(
     'genresSlice/getGenres',
-    async(_, {rejectWithValue}) => {
+    async (_, { rejectWithValue }) => {
         try {
-            const {data} = await movieService.getGenres();
-            return {data}
+            const { data } = await movieService.getGenres();
+            return { data }
         } catch (error) {
             const err = error as AxiosError;
             rejectWithValue(err.message)
@@ -43,7 +43,7 @@ const slice = createSlice({
 })
 
 
-const {reducer: genresReducer, actions} = slice
+const { reducer: genresReducer, actions } = slice
 
 const genresActions = {
     ...actions,

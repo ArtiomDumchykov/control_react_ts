@@ -5,7 +5,6 @@ import './Genres.scss';
 import { IGenre } from 'type';
 
 import { Genre } from '../Genre/Genre';
-
 interface IGenresProps {
   genres: IGenre[]
 }

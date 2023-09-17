@@ -12,8 +12,8 @@ interface IMovieTrailerModalProps {
     onClose: () => void
 }
 
-export const MovieTrailerModal = ({video, onClose }: IMovieTrailerModalProps) => {
-    const {key: trailerKey, name: trailerName} = video;
+export const MovieTrailerModal = ({ video, onClose }: IMovieTrailerModalProps) => {
+    const { key: trailerKey, name: trailerName } = video;
     return (
         <div className="modal-overlay" onClick={onClose}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>

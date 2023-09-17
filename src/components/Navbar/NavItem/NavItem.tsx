@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import './NavItem.scss';
 
 import { INavLinks } from "../NavList/NavList";
-
 interface INavItemProps {
     item: INavLinks
 }

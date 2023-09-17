@@ -9,17 +9,16 @@ export const GenresContainer = () => {
 
   const dispatch = useAppDispatch();
 
-  const {genres} = useAppSelector(state => state.genres)
+  const { genres } = useAppSelector(state => state.genres)
 
   useEffect(() => {
     dispatch(genresActions.getGenres())
   }, [dispatch])
 
-
   return (
     <>
       <div>
-        <Genres genres={genres}/>
+        <Genres genres={genres} />
       </div>
     </>
   )

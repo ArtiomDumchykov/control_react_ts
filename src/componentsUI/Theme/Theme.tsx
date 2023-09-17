@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from "./Theme.module.scss";
+
 import { useTheme } from 'hooks';
 
 export const Theme = () => {

@@ -1,9 +1,9 @@
 import React from 'react'
 
 import styles from './PosterPreview.module.scss';
+
 import { urls } from 'constants/';
 import { ICasts } from 'type';
-
 interface IPosterPreviewProps {
     cast: ICasts
 }

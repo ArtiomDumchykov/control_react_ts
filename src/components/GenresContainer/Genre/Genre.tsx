@@ -1,9 +1,9 @@
 import React from 'react';
-import './Genre.scss';
-
-import { IGenre } from 'type'
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
+import './Genre.scss';
+
+import { IGenre } from 'type';
 interface IGenreProps {
   genre: IGenre,
 }
@@ -25,7 +25,7 @@ export const Genre = ({ genre }: IGenreProps) => {
   }
 
   return (
-    <li 
+    <li
       className="genre__item"
       onClick={handleClick}
     >

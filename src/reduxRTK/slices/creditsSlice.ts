@@ -1,4 +1,4 @@
-import {  PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { ICasts } from "type";
 
 interface IState {

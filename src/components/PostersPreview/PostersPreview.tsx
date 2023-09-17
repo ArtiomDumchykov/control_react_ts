@@ -1,10 +1,11 @@
-import React, { useState, useMemo, useEffect, MouseEventHandler } from 'react';
+import React, {  useEffect } from 'react';
 
 import styles from './PostersPreview.module.scss';
 
 
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { creditsActions } from 'reduxRTK/slices';
+
 import { PosterPreview } from './PosterPreview/PosterPreview';
 
 export const PostersPreview = () => {

@@ -1,7 +1,8 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
-import { movieService } from "services";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
 import { ICasts, ICredits, ICrew, IMovieInfo, IVideo, IVideos } from "type";
+import { movieService } from "services";
 
 interface IState {
     movieId: number | string,
@@ -23,11 +24,11 @@ const initialState: IState = {
     errors: null
 }
 
-const getMovie = createAsyncThunk<IMovieInfo, {movieId: string}>(
+const getMovie = createAsyncThunk<IMovieInfo, { movieId: string }>(
     'movieSlice/getMovie',
-    async({movieId}, {rejectWithValue}) => {
+    async ({ movieId }, { rejectWithValue }) => {
         try {
-            const {data} = await movieService.getById(movieId)
+            const { data } = await movieService.getById(movieId)
             return data
         } catch (error) {
             const err = error as AxiosError
@@ -35,9 +36,9 @@ const getMovie = createAsyncThunk<IMovieInfo, {movieId: string}>(
         }
     }
 )
-const getMovieCredits = createAsyncThunk<ICredits, {movieId: string}>(
+const getMovieCredits = createAsyncThunk<ICredits, { movieId: string }>(
     'movieSlice/getMovieCredits',
-    async({movieId}, {rejectWithValue}) => {
+    async ({ movieId }, { rejectWithValue }) => {
         try {
             const { data } = await movieService.getCredits(movieId)
             return data
@@ -48,11 +49,11 @@ const getMovieCredits = createAsyncThunk<ICredits, {movieId: string}>(
     }
 )
 
-const getMovieTrailers = createAsyncThunk<Pick<IVideos, "results"> , {movieId: string}>(
+const getMovieTrailers = createAsyncThunk<Pick<IVideos, "results">, { movieId: string }>(
     'movieSlice/getMovieTrailers',
-    async({movieId}, {rejectWithValue}) => {
+    async ({ movieId }, { rejectWithValue }) => {
         try {
-            const {data} = await movieService.getMovieTrailer(movieId)
+            const { data } = await movieService.getMovieTrailer(movieId)
             return data
         } catch (error) {
             const err = error as AxiosError
@@ -60,7 +61,6 @@ const getMovieTrailers = createAsyncThunk<Pick<IVideos, "results"> , {movieId: s
         }
     }
 )
-
 
 const slice = createSlice({
     name: "movieSlice",
@@ -77,25 +77,25 @@ const slice = createSlice({
     extraReducers: builder => builder
         .addCase(getMovie.fulfilled, (state, action) => {
             state.movie = action.payload
-        }) 
+        })
         .addCase(getMovie.rejected, (state) => {
             state.errors.push("No Movie")
-        }) 
+        })
         .addCase(getMovieCredits.fulfilled, (state, action) => {
             state.credits = action.payload
-        }) 
+        })
         .addCase(getMovieCredits.rejected, (state) => {
             state.errors.push("No Credits")
-        }) 
+        })
         .addCase(getMovieTrailers.fulfilled, (state, action) => {
             state.videos = action.payload.results
-        }) 
+        })
         .addCase(getMovieTrailers.rejected, (state) => {
             state.errors.push("No Trailer")
-        }) 
+        })
 })
 
-const { reducer: movieReducer, actions} = slice
+const { reducer: movieReducer, actions } = slice
 
 
 const movieActions = {

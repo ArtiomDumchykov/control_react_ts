@@ -9,7 +9,7 @@ interface IMoviesListsProps {
   movies: IMovies[]
 }
 
-export const MoviesLists = ({movies}: IMoviesListsProps) => {
+export const MoviesLists = ({ movies }: IMoviesListsProps) => {
   if (!movies) {
     return (
       <div>NO Movies</div>

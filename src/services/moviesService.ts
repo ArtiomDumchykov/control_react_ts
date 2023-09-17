@@ -1,13 +1,11 @@
-import { ICreditsResponse, IGenre, IGenresResponse, IMoviesResponse, IParams, IRes, ISearchParams, IVideosResponse } from "type";
+import { ICreditsResponse, IGenresResponse, IMovieInfo, IMoviesResponse, IParams, IRes, ISearchParams, IVideosResponse } from "type";
 
 import { urls } from "constants/";
 import { instanceAxiosApi } from "./apiservice";
 
-
-
 const movieService = {
     getAll: (params?: IParams ): IRes<IMoviesResponse> => instanceAxiosApi.get(urls.movie.base, {params: {...params}}),
-    getById: (movieId: string ) => instanceAxiosApi.get(urls.movie.byId(movieId)),
+    getById: (movieId: string ): IRes<IMovieInfo> => instanceAxiosApi.get(urls.movie.byId(movieId)),
 
     getCredits: (movieId: string ): IRes<ICreditsResponse> => instanceAxiosApi.get(urls.credits.base(movieId)),
 

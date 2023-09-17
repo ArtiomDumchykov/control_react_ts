@@ -5,10 +5,10 @@ import "./MovieInfo.scss";
 
 import { urls } from 'constants/';
 import { IMovieInfo } from 'type';
+import { movieActions } from 'reduxRTK/slices';
+import { useAppDispatch } from 'hooks';
 
 import { ShortDescription } from '../ShortDescription/ShortDescription';
-import { useAppDispatch } from 'hooks';
-import { movieActions } from 'reduxRTK/slices';
 
 interface IMovieInfoProps {
     movie: IMovieInfo,
@@ -26,8 +26,6 @@ export const MovieInfo = ({ movie, onOpen }: IMovieInfoProps) => {
             dispatch(movieActions.setClearMovieInfo())
         }
     }, [])
-
-
 
     if (!movie) return null
 

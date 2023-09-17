@@ -1,9 +1,10 @@
-import { isLightTheme } from "guards";
-import { useAppDispatch, useAppSelector } from "hooks";
 import { useEffect } from "react";
 
 import { ReactComponent as MoonIcon } from 'assets/icon-moon.svg';
 import { ReactComponent as SunIcon } from 'assets/icon-sun.svg';
+
+import { isLightTheme } from "guards";
+import { useAppDispatch, useAppSelector } from "hooks";
 import { themeActions } from "reduxRTK/slices";
 
 
