@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 const { 
     REACT_APP_BASEURL: baseURL,
@@ -6,7 +6,6 @@ const {
 } = process.env
 
 const authorizationToken = `Bearer ${accessToken}`;
-
 
 const instanceAxiosApi = axios.create({baseURL});
 
@@ -22,7 +21,7 @@ instanceAxiosApi.interceptors.request.use(config => {
 //         const originalRequest = error.config
 
 //         if (error.response.status === 422) {
-            
+           
 //         }
 //     }
 // )

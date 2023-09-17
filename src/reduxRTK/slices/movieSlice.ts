@@ -15,14 +15,12 @@ interface IState {
     errors?: string[]
 }
 
-
 const initialState: IState = {
     movieId: null,
     movie: null,
     credits: null,
     videos: null,
     errors: null
-
 }
 
 const getMovie = createAsyncThunk<IMovieInfo, {movieId: string}>(
@@ -33,7 +31,7 @@ const getMovie = createAsyncThunk<IMovieInfo, {movieId: string}>(
             return data
         } catch (error) {
             const err = error as AxiosError
-            rejectWithValue(err)
+            return rejectWithValue(err.message)
         }
     }
 )
@@ -45,7 +43,7 @@ const getMovieCredits = createAsyncThunk<ICredits, {movieId: string}>(
             return data
         } catch (error) {
             const err = error as AxiosError
-            rejectWithValue(err)
+            return rejectWithValue(err.message)
         }
     }
 )
@@ -58,7 +56,7 @@ const getMovieTrailers = createAsyncThunk<Pick<IVideos, "results"> , {movieId: s
             return data
         } catch (error) {
             const err = error as AxiosError
-            rejectWithValue(err)
+            return rejectWithValue(err.message)
         }
     }
 )

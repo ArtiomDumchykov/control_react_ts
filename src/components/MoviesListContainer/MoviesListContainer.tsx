@@ -13,6 +13,8 @@ export const MoviesListContainer = () => {
   const { movies } = useAppSelector(state => state.movies);
   const { movies_search, page: page_search, total_pages: total_pages_search } = useAppSelector(state => state.search)
 
+  console.log(movies)
+
   const [query, setQuery] = useSearchParams({ page: "1", });
 
   const hasQuery: boolean = !!query.has("query");
@@ -52,7 +54,7 @@ export const MoviesListContainer = () => {
   return (
     <>
       {
-        !!movies && (
+        !!movies?.length && (
           <>
             <MoviesLists
               movies={!!hasQuery ? movies_search : movies}

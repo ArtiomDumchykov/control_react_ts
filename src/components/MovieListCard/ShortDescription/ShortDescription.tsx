@@ -44,7 +44,7 @@ export function ShortDescription({short_description}: IShortDescriptionProps) {
             </Description>
             <Description
                 text_title='Budget'
-                text_sub_title={`${budget}`}
+                text_sub_title={`${budget.toLocaleString('en-US')}$`}
 
             />
             <Description

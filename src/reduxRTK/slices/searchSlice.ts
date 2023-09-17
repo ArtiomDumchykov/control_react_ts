@@ -16,7 +16,6 @@ const initialState: IState = {
     total_pages: null,
 }
 
-
 const search = createAsyncThunk<{data: IMoviesResponse}, {query?: ISearchParams}>(
     'searchSlice/search',
     async({query}, {rejectWithValue}) => {
@@ -25,12 +24,10 @@ const search = createAsyncThunk<{data: IMoviesResponse}, {query?: ISearchParams}
             return {data, query}
         } catch (error) {
             const err = error as AxiosError;
-            rejectWithValue(err.message)
+            return rejectWithValue(err.message)
         }
     }
 )
-
-
 
 const slice = createSlice({
     name: "searchSlice",

@@ -1,0 +1,44 @@
+
+@import '../../styles/utils/var.scss';
+
+body[data-theme='dark'] {
+    .posters_button {
+        background-color: $orange-color;
+        color: $light-color;
+
+        &:disabled {
+            background-color: $orange-black-color;
+        }
+    }
+}
+
+.posters {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    
+}
+
+.posters__carts {
+    display: flex;
+    gap: 10px;
+}
+
+.buttonContainer {
+    align-self: flex-end;
+    display: flex;
+    gap: 10px;
+}
+
+.posters_button {
+    padding: 5px 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: $transition;
+
+    &:not(:disabled):hover {
+        background-color: $orange-grey-color;
+        transition: $transition;
+    } 
+}

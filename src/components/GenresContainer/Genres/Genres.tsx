@@ -1,21 +1,23 @@
-import React from 'react'
+import React from 'react';
 
-import { IGenre } from 'type'
+import './Genres.scss';
 
-import { Genre } from '../Genre/Genre'
+import { IGenre } from 'type';
+
+import { Genre } from '../Genre/Genre';
 
 interface IGenresProps {
-    genres: IGenre[]
+  genres: IGenre[]
 }
 
-export const Genres = ({genres}: IGenresProps) => {
+export const Genres = ({ genres }: IGenresProps) => {
   return (
-    <>
-        {
-            genres && (
-                genres.map(item => <Genre genre={item} key={`${item.id}_${item.name}`}/>)
-            )
-        }
-    </>
+    <ul className='genres__list'>
+      {
+        genres && (
+          genres.map(item => <Genre genre={item} key={`${item.id}_${item.name}`} />)
+        )
+      }
+    </ul>
   )
 }

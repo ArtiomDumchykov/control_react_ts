@@ -1,13 +1,16 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice, isRejected } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 
 import { IMovies, IMoviesResponse, IParams } from "type";
 import { movieService } from 'services';
 
+
+
 interface IState extends Pick<IMoviesResponse, "page" | "total_pages"> {
     movies: IMovies[],
-    isLoading: boolean
-    error: string,
+    isLoading: boolean,
+    errors: string
+
 }
 
 const initialState: IState = {
@@ -15,7 +18,7 @@ const initialState: IState = {
     page: null,
     total_pages: null,
     isLoading: false,
-    error: null,
+    errors: null,
 
 }
 
@@ -24,15 +27,13 @@ const getAll = createAsyncThunk<{ data: IMoviesResponse }, { params?: IParams | 
     async ({ params }, { rejectWithValue }) => {
         try {
             const response = await movieService.getAll(params);
-            if (response.status === 200) {
-                const {data} = response
-                return { data }
-            } else if (response.status === 422) {
-                return rejectWithValue("Oooooops...")
-            }
+
+            const {data} = response
+            return { data }
+           
         } catch (error) {
             const err = error as AxiosError
-            rejectWithValue(err.message)
+            return rejectWithValue(err.message)
         }
     }
 )
@@ -46,7 +47,7 @@ const slice = createSlice({
     extraReducers: builder => builder
         .addCase(getAll.fulfilled, (state, action) => {
             state.isLoading = null;
-            state.error = null;
+            state.errors = null;
             state.movies = action.payload.data.results
             state.page = action.payload.data.page
             state.total_pages = action.payload.data.total_pages

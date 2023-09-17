@@ -1,0 +1,33 @@
+
+@import '../../../styles/utils/var.scss';
+
+body[data-theme='dark']{
+    .genre__item {
+        background-color: $orange-black-color;
+        color: $dark-color;
+        transition: $transition;
+        &:hover {
+            color: $light-color;
+            background-color: $orange-color;
+            transition: $transition;
+        }
+    }
+}
+
+
+.genre__item {
+    border: 1px solid black;
+    padding: 5px 10px;
+    transition: $transition;
+    color: $dark-color;
+    &:hover {
+        background-color: $orange-color;
+        transition: $transition;
+    }
+}
+
+.genre__item-text {
+    
+    font-size: 18px;
+
+}

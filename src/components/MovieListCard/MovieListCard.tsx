@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { AxiosError } from 'axios';
 
-import { ICredits, IMovieInfo, IVideos } from 'type';
-import { movieService } from 'services';
-
 import { MovieInfo } from './MovieInfo/MovieInfo';
 import { MovieTrailerModal } from 'components/Modal';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { movieActions } from 'reduxRTK/slices';
+import { PostersPreview } from 'components/PostersPreview/PostersPreview';
 
 interface IMovieListCardProps {
     movieId: string
@@ -16,7 +14,7 @@ interface IMovieListCardProps {
 export const MovieListCard = ({movieId}: IMovieListCardProps) => {
 
     const dispatch = useAppDispatch();
-    const { movie, credits, videos, errors} = useAppSelector(state => state.movie)
+    const { movie, credits, videos, } = useAppSelector(state => state.movie)
 
     const [isMovieTrailerOpen, setIsMovieTrailerOpen] = useState(false)
 
@@ -60,7 +58,9 @@ export const MovieListCard = ({movieId}: IMovieListCardProps) => {
                                 onClose={closeModal}
                             />
                         )
+                        
                     }
+                    <PostersPreview/>
                 </>
             )
         }

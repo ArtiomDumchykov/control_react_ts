@@ -77,9 +77,7 @@ export const MovieInfo = ({ movie, onOpen }: IMovieInfoProps) => {
                                 </button>
                             </div>
                         </div>
-                        <div className="overview">
-                            <p>{overview}</p>
-                        </div>
+                        
                         <ShortDescription 
                             short_description={{
                                 vote_average,
@@ -91,6 +89,9 @@ export const MovieInfo = ({ movie, onOpen }: IMovieInfoProps) => {
                                 handleClick
                             }}
                         />
+                        <div className="overview">
+                            <p>{overview}</p>
+                        </div>
                     </div>
                 </div>
             </div>

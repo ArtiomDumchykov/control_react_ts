@@ -1,0 +1,35 @@
+@import '../../../styles/utils/var.scss';
+
+
+.poster {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    transition: $transition;
+
+    &:hover .poster_name {
+        transform: translateY(0%);
+
+        transition: $transition;
+    }
+
+}
+
+.poster_name {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 10px;
+    background-color: grey;
+
+    transform: translateY(100%);
+    transition: $transition;
+
+}
